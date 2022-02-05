@@ -2,6 +2,7 @@ import { SUCCESS_GET, SUCCESS_GET_ALL, SUCCESS_GET_RECENT } from '../actions/cha
 
 const initialState = {
   characterList: [],
+  info: {},
   recentCharacterList: [],
   selectedCharacter: null
 }
@@ -16,12 +17,13 @@ const characterReducer = (state = initialState, action = {}) => {
     case SUCCESS_GET_ALL:
       return {
         ...state,
-        characterList: action.payload
+        characterList: action.payload.results,
+        info: action.payload.info
       }
     case SUCCESS_GET_RECENT:
       return {
         ...state,
-        recentCharacterList: action.payload
+        recentCharacterList: action.payload.results
       }
 
     default: return state

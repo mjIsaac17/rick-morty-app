@@ -6,6 +6,7 @@ import CharacterList from '../character/CharacterList'
 const charactersToShow = 12
 
 const HomeScreen = () => {
+  console.log('<HomeScreen />')
   const dispatch = useDispatch()
 
   // selectors

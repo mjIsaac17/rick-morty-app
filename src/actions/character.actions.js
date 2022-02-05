@@ -24,7 +24,7 @@ export const startGettingCharacterData = (queryParams = {}, multipleCharacters =
       const characterData = await response.json()
       if (response.ok) {
         if (multipleCharacters) {
-          dispatch(successGetCharacters(characterData.results))
+          dispatch(successGetCharacters(characterData))
         } else {
           dispatch(successGetCharacter(characterData))
         }

@@ -5,6 +5,9 @@ const CharacterCard = ({ character }) => {
     <Card className='character-card'>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component='p' variant='subtitle2'>
+            # {character.id}
+          </Typography>
           <Typography component='div' variant='h5'>
             {character.name}
           </Typography>
