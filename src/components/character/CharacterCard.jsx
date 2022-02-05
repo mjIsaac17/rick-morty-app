@@ -1,8 +1,20 @@
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { successGetCharacter } from '../../actions/character.actions'
 
 const CharacterCard = ({ character }) => {
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  const handleSelectCharacter = () => {
+    // set current character
+    dispatch(successGetCharacter(character))
+    history.push(`/character/profile/${character.name}`)
+  }
+
   return (
-    <Card className='character-card'>
+    <Card className='character-card' onClick={handleSelectCharacter}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component='p' variant='subtitle2'>

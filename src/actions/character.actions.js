@@ -26,7 +26,7 @@ export const startGettingCharacterData = (queryParams = {}, multipleCharacters =
         if (multipleCharacters) {
           dispatch(successGetCharacters(characterData))
         } else {
-          dispatch(successGetCharacter(characterData))
+          dispatch(successGetCharacter(characterData.results[0]))
         }
       } else {
         dispatch(setSnackbar('error', characterData.error, true))
