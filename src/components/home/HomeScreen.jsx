@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { startGettingMostRecentCharacters } from '../../actions/character.actions'
+import CharacterList from '../character/CharacterList'
+
+const charactersToShow = 12
 
 const HomeScreen = () => {
   const dispatch = useDispatch()
@@ -12,11 +15,15 @@ const HomeScreen = () => {
   useEffect(() => {
     if (recentCharacterList.length === 0) {
       console.log('effect load characters')
-      dispatch(startGettingMostRecentCharacters())
+      dispatch(startGettingMostRecentCharacters(charactersToShow))
     }
   }, [dispatch, recentCharacterList.length])
 
-  return <div>Home</div>
+  return (
+    <div>
+      <CharacterList characters={recentCharacterList} />
+    </div>
+  )
 }
 
 export default HomeScreen

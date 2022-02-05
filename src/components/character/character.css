@@ -1,0 +1,41 @@
+.character-list {
+  background-color: rgb(233, 233, 245);
+  border: 1px solid rgb(200, 200, 200);
+  margin: 1rem 0;
+  margin-inline: auto;
+  padding: 1rem; 
+  width: min(95%, 1700px);
+}
+
+.character-list__title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.character-list__content {
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1500px;
+}
+
+/*CARD*/
+.character-card {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+  width: min(100%, 350px);
+}
+
+.character-card:hover {
+  background-color: rgb(219, 219, 219);
+}
+
+
+
+.character-card > img {
+  width: min(100%, 190px);      
+}

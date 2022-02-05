@@ -24,7 +24,7 @@ export const startGettingCharacterData = (queryParams = {}, multipleCharacters =
       const characterData = await response.json()
       if (response.ok) {
         if (multipleCharacters) {
-          dispatch(successGetCharacters(characterData))
+          dispatch(successGetCharacters(characterData.results))
         } else {
           dispatch(successGetCharacter(characterData))
         }
@@ -43,17 +43,19 @@ export const successGetMostRecentCharacters = (characters) => ({
   payload: characters
 })
 
-export const startGettingMostRecentCharacters = () => {
+export const startGettingMostRecentCharacters = (charactersToShow = 12) => {
   return async (dispatch) => {
     try {
       // get character info to get the total of records
       const response = await httpRequest(characterEndpoint, 'GET')
-      const characterInfo = await response.json()
+      const charactersInfo = await response.json()
       if (response.ok) {
-        const totalOfCharacters = characterInfo.info.count
-        // Get the 10 (if possible) last characters according to their id
+        const totalOfCharacters = charactersInfo.info.count
+        // Get the last characters according to their id
         // Bigger id = newer character
-        const limitToSearch = totalOfCharacters > 10 ? totalOfCharacters - 10 : totalOfCharacters
+        const limitToSearch = totalOfCharacters > charactersToShow
+          ? totalOfCharacters - charactersToShow
+          : totalOfCharacters
 
         let charactersToSearch = ''
 
@@ -70,7 +72,7 @@ export const startGettingMostRecentCharacters = () => {
           dispatch(setSnackbar('error', recentCharacters.error, true))
         }
       } else {
-        dispatch(setSnackbar('error', characterInfo.error, true))
+        dispatch(setSnackbar('error', charactersInfo.error, true))
       }
     } catch (error) {
       dispatch(setSnackbar('error', error, true))
