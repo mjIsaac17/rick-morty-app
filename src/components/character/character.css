@@ -4,7 +4,7 @@
   margin: 1rem 0;
   margin-inline: auto;
   padding: 1rem; 
-  width: min(95%, 1700px);
+  width: min(90%, 1700px);
 }
 
 .character-list__title {

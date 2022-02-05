@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <CharacterList characters={recentCharacterList} />
+      <CharacterList characters={recentCharacterList} title='Most recent characters' />
     </div>
   )
 }

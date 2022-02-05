@@ -23,7 +23,7 @@ const characterReducer = (state = initialState, action = {}) => {
     case SUCCESS_GET_RECENT:
       return {
         ...state,
-        recentCharacterList: action.payload
+        recentCharacterList: action.payload.reverse()
       }
 
     default: return state

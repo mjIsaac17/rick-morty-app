@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 import InputBase from '@mui/material/InputBase'
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
+import { Link } from 'react-router-dom'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -43,39 +44,46 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   }
 }))
 
-export default function Navbar () {
+const Navbar = ({ children }) => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static' color='secondary'>
-        <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            Rick and Morty App
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder='Search character…'
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position='static' color='secondary'>
+          <Toolbar>
+            <IconButton
+              size='large'
+              edge='start'
+              color='inherit'
+              aria-label='open drawer'
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant='h6'
+              noWrap
+              component='div'
+              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            >
+              <Link to='/'>
+                Rick and Morty App
+              </Link>
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder='Search character…'
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      {children}
+    </>
   )
 }
+
+export default Navbar
