@@ -7,16 +7,17 @@ import MenuIcon from '@mui/icons-material/Menu'
 import SearchInput from '../ui/SearchInput'
 import { useLocation, Link } from 'react-router-dom'
 
-const Navbar = ({ children }) => {
+const Navbar = ({ handleToogleSidebar }) => {
   const pageName = useLocation().pathname.split('/')[1]
 
   console.log('<Navbar>', pageName)
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position='static' color='secondary'>
+        <AppBar position='fixed' color='secondary'>
           <Toolbar>
             <IconButton
+              onClick={handleToogleSidebar}
               size='large'
               edge='start'
               color='inherit'
@@ -38,8 +39,8 @@ const Navbar = ({ children }) => {
             {pageName !== '' && <SearchInput pageName={pageName} placeholder={`Search ${pageName} ...`} />}
           </Toolbar>
         </AppBar>
+        <Toolbar />
       </Box>
-      {children}
     </>
   )
 }

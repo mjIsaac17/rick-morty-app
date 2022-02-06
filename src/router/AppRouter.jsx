@@ -5,14 +5,14 @@ import CharactersScreen from '../components/character/CharactersScreen'
 import EpisodeInfo from '../components/episode/EpisodeInfo'
 import EpisodeScreen from '../components/episode/EpisodeScreen'
 import HomeScreen from '../components/home/HomeScreen'
-import Navbar from '../components/navbar/Navbar'
+import Layout from '../components/layout/Layout'
 import FabReturn from '../components/ui/FabReturn'
 
 const AppRouter = () => {
   return (
     <>
       <Router>
-        <Navbar>
+        <Layout>
           <FabReturn />
           <Switch>
             <Route exact path='/' component={HomeScreen} />
@@ -22,7 +22,7 @@ const AppRouter = () => {
             <Route exact path='/episode/info/:name' component={EpisodeInfo} />
             <Redirect to='/' />
           </Switch>
-        </Navbar>
+        </Layout>
       </Router>
     </>
   )
