@@ -15,6 +15,7 @@ const AppRouter = () => {
           <Switch>
             <Route exact path='/' component={HomeScreen} />
             <Route exact path='/character/:name?' component={CharactersScreen} />
+            {/* <Route exact path='/episode/:name?' component={EpisodeS} /> */}
             <Route exact path='/character/profile/:name' component={CharacterProfile} />
             <Redirect to='/' />
           </Switch>

@@ -1,4 +1,4 @@
-import { SUCCESS_GET, SUCCESS_GET_ALL, SUCCESS_GET_RECENT } from '../actions/edisode.action'
+import { SUCCESS_GET, SUCCESS_GET_ALL, SUCCESS_GET_RECENT } from '../actions/episode.action'
 
 const initialState = {
   episodeList: [],

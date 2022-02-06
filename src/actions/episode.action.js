@@ -7,29 +7,29 @@ export const SUCCESS_GET = 'episode/GET'
 export const SUCCESS_GET_ALL = 'episode/GET_ALL'
 export const SUCCESS_GET_RECENT = 'episode/GET_RECENT'
 
-export const successGetCharacter = (episode) => ({
+export const successGetEpisode = (episode) => ({
   type: SUCCESS_GET,
   payload: episode
 })
 
-export const successGetEpisodes = (episodes) => ({
+const successGetEpisodes = (episodes) => ({
   type: SUCCESS_GET_ALL,
   payload: episodes
 })
 
-export const startGettingCharacterData = (queryParams = {}, multipleEpisodes = false) => {
+export const startGettingEpisodeData = (queryParams = {}, multipleEpisodes = false) => {
   return async (dispatch) => {
     try {
       const response = await httpRequest(edisodeEndpoint, 'GET', queryParams)
-      const characterData = await response.json()
+      const episodeData = await response.json()
       if (response.ok) {
         if (multipleEpisodes) {
-          dispatch(successGetEpisodes(characterData))
+          dispatch(successGetEpisodes(episodeData))
         } else {
-          dispatch(successGetCharacter(characterData.results[0]))
+          dispatch(successGetEpisode(episodeData.results[0]))
         }
       } else {
-        dispatch(setSnackbar('error', characterData.error, true))
+        dispatch(setSnackbar('error', episodeData.error, true))
       }
     } catch (error) {
       dispatch(setSnackbar('error', error, true))
@@ -38,7 +38,7 @@ export const startGettingCharacterData = (queryParams = {}, multipleEpisodes = f
   }
 }
 
-export const successGetMostRecentEpisodes = (episodes) => ({
+const successGetMostRecentEpisodes = (episodes) => ({
   type: SUCCESS_GET_RECENT,
   payload: episodes
 })

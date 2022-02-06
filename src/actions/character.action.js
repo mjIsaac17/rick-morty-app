@@ -12,7 +12,7 @@ export const successGetCharacter = (character) => ({
   payload: character
 })
 
-export const successGetCharacters = (characters) => ({
+const successGetCharacters = (characters) => ({
   type: SUCCESS_GET_ALL,
   payload: characters
 })
@@ -38,7 +38,7 @@ export const startGettingCharacterData = (queryParams = {}, multipleCharacters =
   }
 }
 
-export const successGetMostRecentCharacters = (characters) => ({
+const successGetMostRecentCharacters = (characters) => ({
   type: SUCCESS_GET_RECENT,
   payload: characters
 })
