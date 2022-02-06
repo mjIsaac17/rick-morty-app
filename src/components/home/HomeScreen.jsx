@@ -18,11 +18,9 @@ const HomeScreen = () => {
 
   useEffect(() => {
     if (recentCharacterList.length === 0) {
-      console.log('effect load characters')
       dispatch(startGettingMostRecentCharacters(charactersToShow))
     }
     if (recentEpisodeList.length === 0) {
-      console.log('effect load episodes')
       dispatch(startGettingMostRecentEpisodes(episodesToShow))
     }
   }, [dispatch, recentCharacterList.length, recentEpisodeList.length])
