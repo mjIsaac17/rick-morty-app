@@ -30,7 +30,7 @@ const Navbar = ({ handleToogleSidebar }) => {
               variant='h6'
               noWrap
               component='div'
-              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+              sx={{ flexGrow: 1 }}
             >
               <Link to='/'>
                 Rick and Morty App

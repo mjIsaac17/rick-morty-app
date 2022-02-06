@@ -13,6 +13,7 @@ const CustomPagination = ({ totalPages }) => {
   const dispatch = useDispatch()
 
   const handleChange = (event, value) => {
+    window.scrollTo(0, 0)
     dispatch(setCurrentPage(value))
     setPage(value)
   }
