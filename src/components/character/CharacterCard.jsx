@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { successGetCharacter } from '../../actions/character.actions'
+import { successGetCharacter } from '../../actions/character.action'
 
 const CharacterCard = ({ character }) => {
   const dispatch = useDispatch()

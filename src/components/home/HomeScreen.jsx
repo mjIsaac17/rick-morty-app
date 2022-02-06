@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { startGettingMostRecentCharacters } from '../../actions/character.actions'
+import { startGettingMostRecentCharacters } from '../../actions/character.action'
 import CharacterList from '../character/CharacterList'
 
 const charactersToShow = 12

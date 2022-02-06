@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { startGettingCharacterData } from '../../actions/character.actions'
+import { startGettingCharacterData } from '../../actions/character.action'
 
 const CharacterProfile = () => {
   // Get character name in the url, to use it if there is no selected chr. in the state
