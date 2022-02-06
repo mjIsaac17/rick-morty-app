@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentPage } from '../../actions/pagination.action'
 
 const CustomPagination = ({ totalPages }) => {
-  console.log('<Pagination />')
-
   const { currentPage } = useSelector(state => state.pagination)
 
   const [page, setPage] = useState(currentPage)

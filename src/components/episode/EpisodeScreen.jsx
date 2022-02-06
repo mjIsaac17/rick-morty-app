@@ -6,7 +6,6 @@ import CustomPagination from '../ui/CustomPagination'
 import EpisodeList from './EpisodeList'
 
 const EpisodeScreen = () => {
-  console.log('<EpisodeScreen />')
   const { name = '' } = useParams()
   const dispatch = useDispatch()
 

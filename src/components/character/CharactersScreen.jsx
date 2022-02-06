@@ -6,7 +6,6 @@ import { startGettingCharacterData } from '../../actions/character.action'
 import CustomPagination from '../ui/CustomPagination'
 
 const CharactersScreen = () => {
-  console.log('<CharacterScreen />')
   const { name = '' } = useParams()
   const dispatch = useDispatch()
 

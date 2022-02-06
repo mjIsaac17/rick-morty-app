@@ -15,7 +15,6 @@ import { useDispatch } from 'react-redux'
 import { setCurrentPage } from '../../actions/pagination.action'
 
 const Sidebar = ({ isOpen, handleToogleSidebar }) => {
-  console.log('<Sidebar>')
   const history = useHistory()
   const dispatch = useDispatch()
 

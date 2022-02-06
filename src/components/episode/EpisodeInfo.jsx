@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { startGettingEpisodeData } from '../../actions/episode.action'
 
 const EpisodeInfo = () => {
-  // Get character name in the url, to use it if there is no selected chr. in the state
+  // Get edisode name from the url to use it if there is no selected chr. in the state
   const { name } = useParams()
   const dispatch = useDispatch()
 
@@ -14,7 +14,7 @@ const EpisodeInfo = () => {
     if (!episode) {
       dispatch(startGettingEpisodeData({ name }))
     }
-  }, [dispatch, name])
+  }, [dispatch, name, episode])
 
   return (
     <>

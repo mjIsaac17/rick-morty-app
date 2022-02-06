@@ -4,8 +4,6 @@ import SearchIcon from '@mui/icons-material/Search'
 import { useHistory } from 'react-router-dom'
 
 const SearchInput = ({ placeholder = 'Search ...', pageName }) => {
-  console.log('<SearchInput>')
-
   const history = useHistory()
 
   const handleSearch = () => {

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { startGettingCharacterData } from '../../actions/character.action'
 
 const CharacterProfile = () => {
-  // Get character name in the url, to use it if there is no selected chr. in the state
+  // Get character name from the url to use it if there is no selected chr. in the state
   const { name } = useParams()
   const dispatch = useDispatch()
 
@@ -14,7 +14,7 @@ const CharacterProfile = () => {
     if (!character) {
       dispatch(startGettingCharacterData({ name }))
     }
-  }, [dispatch, name])
+  }, [dispatch, name, character])
 
   return (
     <>

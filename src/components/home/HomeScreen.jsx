@@ -9,7 +9,7 @@ const charactersToShow = 12
 const episodesToShow = 12
 
 const HomeScreen = () => {
-  console.log('<HomeScreen />')
+  // console.log('<HomeScreen />')
   const dispatch = useDispatch()
 
   // selectors
@@ -25,7 +25,7 @@ const HomeScreen = () => {
       console.log('effect load episodes')
       dispatch(startGettingMostRecentEpisodes(episodesToShow))
     }
-  }, [dispatch, recentCharacterList.length])
+  }, [dispatch, recentCharacterList.length, recentEpisodeList.length])
 
   return (
     <div>

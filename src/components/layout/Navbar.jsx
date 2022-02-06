@@ -10,7 +10,6 @@ import { useLocation, Link } from 'react-router-dom'
 const Navbar = ({ handleToogleSidebar }) => {
   const pageName = useLocation().pathname.split('/')[1]
 
-  console.log('<Navbar>', pageName)
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
