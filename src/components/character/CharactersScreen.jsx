@@ -20,7 +20,7 @@ const CharactersScreen = () => {
 
   return (
     <div>
-      <CharacterList characters={characterList} />
+      <CharacterList characters={characterList} title={name === '' ? `Characters (${info.count})` : `Results for "${name}" (${info.count})`} />
       {info.pages > 1 && <CustomPagination totalPages={info.pages} />}
     </div>
   )

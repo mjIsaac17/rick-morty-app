@@ -6,6 +6,7 @@ const characterEndpoint = 'character'
 export const SUCCESS_GET = 'character/GET'
 export const SUCCESS_GET_ALL = 'character/GET_ALL'
 export const SUCCESS_GET_RECENT = 'character/GET_RECENT'
+export const CLEAR_CHARACTERS = 'character/CLEAR_CHARACTERS'
 
 export const successGetCharacter = (character) => ({
   type: SUCCESS_GET,
@@ -15,6 +16,10 @@ export const successGetCharacter = (character) => ({
 const successGetCharacters = (characters) => ({
   type: SUCCESS_GET_ALL,
   payload: characters
+})
+
+const clearCharacters = () => ({
+  type: CLEAR_CHARACTERS
 })
 
 export const startGettingCharacterData = (queryParams = {}, multipleCharacters = false) => {
@@ -29,7 +34,9 @@ export const startGettingCharacterData = (queryParams = {}, multipleCharacters =
           dispatch(successGetCharacter(characterData.results[0]))
         }
       } else {
-        dispatch(setSnackbar('error', characterData.error, true))
+        // There are no results for the search, clear the characters data
+        if (multipleCharacters) dispatch(clearCharacters())
+        dispatch(setSnackbar('error', 'Character not found', true))
       }
     } catch (error) {
       dispatch(setSnackbar('error', error, true))

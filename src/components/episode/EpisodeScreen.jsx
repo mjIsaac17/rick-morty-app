@@ -20,7 +20,7 @@ const EpisodeScreen = () => {
 
   return (
     <div>
-      <EpisodeList episodes={episodeList} />
+      <EpisodeList episodes={episodeList} title={name === '' ? `Episodes (${info.count})` : `Results for "${name}" (${info.count})`} />
       {info.pages > 1 && <CustomPagination totalPages={info.pages} />}
     </div>
   )

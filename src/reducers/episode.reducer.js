@@ -1,8 +1,10 @@
-import { SUCCESS_GET, SUCCESS_GET_ALL, SUCCESS_GET_RECENT } from '../actions/episode.action'
+import { CLEAR_EPISODES, SUCCESS_GET, SUCCESS_GET_ALL, SUCCESS_GET_RECENT } from '../actions/episode.action'
 
 const initialState = {
   episodeList: [],
-  info: {},
+  info: {
+    count: 0
+  },
   recentEpisodeList: [],
   selectedEpisode: null
 }
@@ -24,6 +26,12 @@ const episodeReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         recentEpisodeList: action.payload.reverse()
+      }
+    case CLEAR_EPISODES:
+      return {
+        ...state,
+        episodeList: [],
+        info: initialState.info
       }
 
     default: return state

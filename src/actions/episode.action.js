@@ -6,6 +6,7 @@ const edisodeEndpoint = 'episode'
 export const SUCCESS_GET = 'episode/GET'
 export const SUCCESS_GET_ALL = 'episode/GET_ALL'
 export const SUCCESS_GET_RECENT = 'episode/GET_RECENT'
+export const CLEAR_EPISODES = 'character/CLEAR_EPISODES'
 
 export const successGetEpisode = (episode) => ({
   type: SUCCESS_GET,
@@ -15,6 +16,10 @@ export const successGetEpisode = (episode) => ({
 const successGetEpisodes = (episodes) => ({
   type: SUCCESS_GET_ALL,
   payload: episodes
+})
+
+const clearEpisodes = () => ({
+  type: CLEAR_EPISODES
 })
 
 export const startGettingEpisodeData = (queryParams = {}, multipleEpisodes = false) => {
@@ -29,7 +34,8 @@ export const startGettingEpisodeData = (queryParams = {}, multipleEpisodes = fal
           dispatch(successGetEpisode(episodeData.results[0]))
         }
       } else {
-        dispatch(setSnackbar('error', episodeData.error, true))
+        if (multipleEpisodes) dispatch(clearEpisodes)
+        dispatch(setSnackbar('error', 'Episode not found', true))
       }
     } catch (error) {
       dispatch(setSnackbar('error', error, true))
