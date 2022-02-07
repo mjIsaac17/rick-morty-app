@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom'
 const SearchInput = ({ placeholder = 'Search ...', pageName }) => {
   const history = useHistory()
 
-  const handleSearch = () => {
+  const handleSearch = (event) => {
+    event.preventDefault()
     const searchValue = document.getElementById('searchInput').value.trim()
     if (searchValue !== '') history.push(`/${pageName}/${searchValue}`)
   }
@@ -26,7 +27,10 @@ const SearchInput = ({ placeholder = 'Search ...', pageName }) => {
     }
   }))
 
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
+  const SearchIconWrapper = styled('button')(({ theme }) => ({
+    background: 'transparent',
+    border: 'none',
+    color: 'inherit',
     cursor: 'pointer',
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -47,16 +51,19 @@ const SearchInput = ({ placeholder = 'Search ...', pageName }) => {
     }
   }))
   return (
-    <Search>
-      <SearchIconWrapper onClick={handleSearch}>
-        <SearchIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        id='searchInput'
-        placeholder={placeholder}
-        inputProps={{ 'aria-label': 'search' }}
-      />
-    </Search>
+    <form onSubmit={handleSearch}>
+      <Search>
+        <SearchIconWrapper type='submit'>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          autoComplete='off'
+          id='searchInput'
+          placeholder={placeholder}
+          inputProps={{ 'aria-label': 'search' }}
+        />
+      </Search>
+    </form>
   )
 }
 
